@@ -2,7 +2,7 @@
     <li>
         <a
             class="font-bold text-lg mb-4 block"
-            href="/">Home</a>
+            href="/tweets">Home</a>
     </li>
     <li>
         <a
@@ -32,7 +32,7 @@
     <li>
         <a
             class="font-bold text-lg mb-4 block"
-            href="/">Profile</a>
+            href="{{ route('profile', auth()->user()) }}">Profile</a>
     </li>
     <li>
         <a
