@@ -3,12 +3,15 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Followable;
 
     /**
      * The attributes that are mass assignable.
@@ -36,10 +39,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    /**
+     * @var mixed
+     */
+    /**
+     * @var mixed
+     */
 
-    public function getAvatarAttribute()
+    public function getAvatarAttribute(): string
     {
-        return "https://i.pravatar.cc/50?u=" . $this->email;
+        return "https://i.pravatar.cc/200?u=" . $this->email;
     }
 
     public function timeline()
@@ -51,27 +60,18 @@ class User extends Authenticatable
             ->latest()->get();
     }
 
-    public function tweets()
+    public function tweets(): HasMany
     {
         return $this->hasMany(Tweet::class);
     }
 
-    public function follow(User $user)
-    {
-        return $this->follows()->save($user);
-    }
-
-    public function follows()
-    {
-        return $this->belongsToMany(
-            User::class,
-            'follows',
-            'user_id',
-            'following_user_id'
-        );
-    }
-    public function getRouteKeyName()
+    public function getRouteKeyName(): string
     {
         return 'name';
+    }
+
+    public function path(): string
+    {
+        return route('profile', $this->name);
     }
 }

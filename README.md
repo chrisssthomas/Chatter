@@ -1,1 +1,1 @@
-# Twitter clone project.
+# Twitter clone built with Laravel and Blade.

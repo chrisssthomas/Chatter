@@ -1,4 +1,4 @@
-<div class="border border-blue-100 rounded-lg p-8">
+<div class="border border-gray-300 rounded-lg p-8">
     <form method="POST" action="/tweets">
         @csrf
         <textarea
@@ -14,6 +14,8 @@
                 src="{{ auth()->user()->avatar }}"
                 class="rounded-full mr-2"
                 alt="your avatar"
+                width="50"
+                height="50"
             >
             <button
                 type="submit"

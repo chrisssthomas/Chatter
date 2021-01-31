@@ -1,6 +1,13 @@
-<div class="flex p-4 border border-b-gray-50">
+<div class="flex p-4 border-b border-b-gray-50">
     <div class="mr-4 flex-shrink-0">
-        <a href="{{route('profile', $tweet->user)}}"><img src="{{ $tweet->user->avatar }}" class="rounded-full mr-2" alt=""></a>
+        <a href="{{ $tweet->user->path() }}">
+            <img
+                src="{{ $tweet->user->avatar }}"
+                class="rounded-full mr-2"
+                width="50"
+                height="50"
+                alt="">
+        </a>
     </div>
 
     <div>
@@ -8,5 +15,6 @@
         <p class="text-sm">
             {{ $tweet->body }}
         </p>
+        <p class="text-sm text-dark mt-4">{{ $tweet->created_at->diffForHumans() }}</p>
     </div>
 </div>

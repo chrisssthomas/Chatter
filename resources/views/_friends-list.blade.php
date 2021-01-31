@@ -8,6 +8,8 @@
                 <img
                     src="{{ $user->avatar }}"
                     class="rounded-full mr-2"
+                    width="50"
+                    height="50"
                     alt=""
                 >
                 {{ $user->name }}
@@ -16,3 +18,8 @@
     </li>
     @endforeach
 </ul>
+
+{{--<div>--}}
+{{--    <span>{{ $user->tweets }}</span>--}}
+{{--</div>--}}
+
