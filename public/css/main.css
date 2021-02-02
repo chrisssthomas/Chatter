@@ -550,6 +550,10 @@ video {
   width: 100%;
 }
 
+.tweet:last-child {
+    border-bottom: none !important;
+}
+
 @media (min-width: 640px) {
   .container {
     max-width: 640px;

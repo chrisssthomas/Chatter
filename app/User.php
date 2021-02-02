@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'name', 'email', 'password',
     ];
 
     /**
@@ -60,18 +60,29 @@ class User extends Authenticatable
             ->latest()->get();
     }
 
+    // TODO, this doesn't work yet.
+
+    public function whoTheyFollow()
+    {
+
+        return $this->follows()->pluck('id');
+
+    }
+
     public function tweets(): HasMany
     {
-        return $this->hasMany(Tweet::class);
+        return $this->hasMany(Tweet::class)->latest();
     }
 
     public function getRouteKeyName(): string
     {
-        return 'name';
+        return 'username';
     }
 
-    public function path(): string
+    public function path($append = ''): string
     {
-        return route('profile', $this->name);
+        $path = route('profile', $this->username);
+
+        return $append ? "{$path}/{$append}" : $path;
     }
 }
