@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 trait Followable
 {
 
-    public function following(User $user): bool
+    public function following(User $user)
     {
         return $this->follows()
             ->where('following_user_id', $user->id)
@@ -24,7 +24,7 @@ trait Followable
             User::class,
             'follows',
             'user_id',
-            'following_user_id'
+            'following_user_id',
         );
     }
 
@@ -38,12 +38,12 @@ trait Followable
         return $this->follow($user);
     }
 
-    public function follow(User $user): Model
+    public function follow(User $user)
     {
         return $this->follows()->save($user);
     }
 
-    public function unfollow(User $user): int
+    public function unfollow(User $user)
     {
         return $this->follows()->detach($user);
     }

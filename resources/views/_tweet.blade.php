@@ -1,4 +1,4 @@
-<div class="flex p-4 border-b border-b-gray-50">
+<div class="flex p-4 border-b border-b-gray-50 tweet">
     <div class="mr-4 flex-shrink-0">
         <a href="{{ $tweet->user->path() }}">
             <img

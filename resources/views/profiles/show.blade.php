@@ -12,6 +12,7 @@
                 <p class="text-sm">
                     Joined {{ $user->created_at->diffForHumans() }}
                 </p>
+                <p></p>
             </div>
             <img src="{{ $user->avatar }}" alt="" class="absolute rounded-full mr-2 w-32"
             style="
@@ -22,9 +23,14 @@
                 right: 0;
             ">
             <div class="flex">
-                <button class="py-2 px-4 mr-2 border border-gray-300 hover:bg-gray-50 rounded-full">Edit profile</button>
+                @can('edit', $user)
+                    <a href="{{ $user->path('edit') }}" class="py-2 px-4 mr-2 border border-gray-300 hover:bg-gray-50 rounded-full">Edit profile</a>
+                @endcan
 
-                @component('components.follow-button', ['user' => $user]) @endcomponent
+                @if (auth()->user())
+                    @component('components.follow-button', ['user' => $user]) @endcomponent
+                @endif
+
             </div>
         </div>
         <div class="mt-4">
@@ -40,5 +46,9 @@
 
     @include('_timeline', [
         'tweets' => $user->tweets
+    ])
+
+    @include('profiles.follows', [
+        'user' => $user
     ])
 @endcomponent
