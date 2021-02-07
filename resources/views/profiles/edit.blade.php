@@ -105,7 +105,8 @@
         {{-- Submit --}}
 
         <div class="button">
-            <button type="submit" class="bg-blue-500 px-4 py-2 rounded text-white">Submit</button>
+            <button type="submit" class="bg-blue-500 px-4 py-2 rounded text-white mr-2">Submit</button>
+            <a class="px-4 py-2 rounded" href="{{ $user->path() }}">Cancel</a>
         </div>
 
     </form>
