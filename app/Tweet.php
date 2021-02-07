@@ -3,15 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use \Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Tweet extends Model
 {
 
+    use Likeable;
+
     protected $guarded = [];
 
-    public function user(): BelongsTo
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
+
 }

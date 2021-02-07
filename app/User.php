@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'name', 'email', 'password',
+        'username', 'avatar', 'name', 'email', 'password',
     ];
 
     /**
@@ -45,10 +45,18 @@ class User extends Authenticatable
     /**
      * @var mixed
      */
+    /**
+     * @var mixed
+     */
 
-    public function getAvatarAttribute(): string
+    public function getAvatarAttribute($value): string
     {
-        return "https://i.pravatar.cc/200?u=" . $this->email;
+        return asset($value ?: '/images/default-avatar.png');
+    }
+
+    public function setPasswordAttribute($value): string
+    {
+        return $this->attributes['password'] = bcrypt($value);
     }
 
     public function timeline()
@@ -57,10 +65,15 @@ class User extends Authenticatable
 
         return Tweet::whereIn('user_id', $friends)
             ->orWhere('user_id', $this->id)
-            ->latest()->get();
+            ->withLikes()
+            ->orderByDesc('id')
+            ->paginate(50);
     }
 
-    // TODO, this doesn't work yet.
+    /* TODO, this doesn't work yet.
+    *
+    * Edit: 6/2/2021: Hmm maybe this does work, not sure, it works on the front end, can't remember how though.
+    */
 
     public function whoTheyFollow()
     {
@@ -74,12 +87,18 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class)->latest();
     }
 
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+
     public function getRouteKeyName(): string
     {
         return 'username';
     }
 
-    public function path($append = ''): string
+    public function path($append = '')
     {
         $path = route('profile', $this->username);
 

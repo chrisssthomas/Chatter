@@ -5,12 +5,14 @@
         <img class="rounded-lg" src="/images/original.jpg" alt="">
 
         <div class="flex justify-between items-center py-4 relative">
-            <div>
+            <div style="max-width: 270px">
                 <h3 class="font-bold text-2xl mb-0">
                     {{ $user->name }}
                 </h3>
                 <p class="text-sm">
-                    Joined {{ $user->created_at->diffForHumans() }}
+                    @if ($user->created_at)
+                        Joined {{ $user->created_at->diffForHumans() }}
+                    @endif
                 </p>
                 <p></p>
             </div>
@@ -45,7 +47,7 @@
     </header>
 
     @include('_timeline', [
-        'tweets' => $user->tweets
+        'tweets' => $tweets,
     ])
 
     @include('profiles.follows', [
