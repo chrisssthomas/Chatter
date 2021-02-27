@@ -17,15 +17,21 @@ class TweetController extends Controller
             'tweets' => auth()->user()->timeline(),
         ]);
     }
-    public function store()
+    public function store(Request $request)
     {
         $attributes = request()->validate([
             'body' => 'required|max:255',
+            'image' => 'file',
         ]);
+
+        // if(isset($attributes['image'])) {
+            
+        // }
 
         Tweet::create([
             'user_id' => auth()->id(),
             'body' => $attributes['body'],
+            'image' => isset($attributes['image']) ? $attributes['image']->store('images') : null
         ]);
 
         return redirect('/tweets');

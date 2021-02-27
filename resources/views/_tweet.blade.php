@@ -3,10 +3,8 @@
         <a href="{{ $tweet->user->path() }}">
             <img
                 src="{{ $tweet->user->avatar }}"
-                class="rounded-full mr-2"
-                width="50"
-                height="50"
-                alt="">
+                class="rounded-full focus-within w-14 h-14 mr-2"
+                alt="{{ $tweet->user->name }}'s profile photo">
         </a>
     </div>
 
@@ -19,6 +17,13 @@
         <p class="text-sm">
             {{ $tweet->body }}
         </p>
+
+        @if ($tweet->image != null) 
+
+            <img style="max-width: 100%;" class="rounded-lg border mt-2"  src="{{ $tweet->image }}" alt="{{ $tweet->image }}">
+
+        @endif
+
         <p class="text-sm text-dark mt-4">{{ $tweet->created_at->diffForHumans() }}</p>
 
         @include('components.like-component',

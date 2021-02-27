@@ -9,11 +9,20 @@ class Tweet extends Model
 
     use Likeable;
 
-    protected $guarded = [];
+    protected $fillable = ['image', 'user_id', 'body'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getImageAttribute($value): string
+    {   
+        if ($value) {
+            return asset($value);
+        }
+
+        return false;
     }
 
 }

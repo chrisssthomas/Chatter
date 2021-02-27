@@ -20,6 +20,21 @@
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>
+{{-- 
+        <div class="mb-6">
+            <label
+                for="bio"
+                class="block mb-2 font-bold text-xs text-gray-700"
+            >
+                bio
+            </label>
+
+            <input type="text" name="bio" id="bio" class="border border-gray-400 p-2 w-full" value="{{ $user->bio }}" required>
+            @error('bio')
+                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            @enderror
+        </div> --}}
+
 
         {{-- Username --}}
 
@@ -36,6 +51,7 @@
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>
+
 
         {{-- Avatar --}}
 
@@ -65,6 +81,14 @@
             </label>
 
             <input type="text" name="email" id="email" class="border border-gray-400 p-2 w-full" value="{{ $user->email }}" required>
+            @error('email')
+                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="mb-6">
+            <label for="bio">Bio</label>
+            <textarea name="bio" id="bio" cols="30" rows="10" value="{{ $user->email }}"></textarea>
             @error('email')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror

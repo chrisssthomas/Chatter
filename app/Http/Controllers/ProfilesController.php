@@ -36,6 +36,7 @@ class ProfilesController extends Controller
             'avatar' => ['file'],
             'email' => ['string', 'required', 'email', 'max:255', Rule::unique('users')->ignore($user)],
             'password' => ['string', 'required', 'min:8', 'max:255', 'confirmed'],
+            'bio' => ['required']
         ]);
 
         if (request('avatar')) {

@@ -16,9 +16,9 @@
                 </p>
                 <p></p>
             </div>
-            <img src="{{ $user->avatar }}" alt="" class="absolute rounded-full mr-2 w-32"
+            <img src="{{ $user->avatar }}" alt="" class="absolute rounded-full mr-2 w-32 h-32"
             style="
-                top: -40px;
+                top: -65px;
                 margin-left: auto;
                 margin-right: auto;
                 left: 0;
@@ -37,11 +37,7 @@
         </div>
         <div class="mt-4">
             <p class="text-sm text-center">
-                I'm baby lyft seitan migas keytar dreamcatcher. Poutine affogato readymade
-                church-key austin vice art party hot chicken. Flannel cornhole kickstarter
-                tattooed, jean shorts disrupt man braid XOXO kale chips quinoa tacos sartorial.
-                90's intelligentsia literally tumeric gochujang chartreuse. Lo-fi la croix hexagon
-                af VHS actually hot chicken next level, taxidermy pok pok stumptown vape quinoa.
+                {{$user->bio}}
             </p>
         </div>
     </header>
