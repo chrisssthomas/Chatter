@@ -7,10 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Twatter') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
 
@@ -19,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -28,9 +28,12 @@
                 <img src="/images/twatterlogo.svg" alt="Twatter">
             </header>
         </section>
-
         {{ $slot }}
     </div>
+
+    {{-- <div id="vue">
+        <App></App>
+    </div> --}}
 
     <script src="http://unpkg.com/turbolinks"></script>
 </body>
