@@ -1,4 +1,4 @@
-# Twitter clone built with Laravel and Blade.
+# Twitter clone built with Laravel, Blade & VueJS
 
 # `docker-compose up --build`
 
