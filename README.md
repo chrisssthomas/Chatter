@@ -6,5 +6,11 @@
 
 #### set .env variables
 
+#### `docker ps` copy chatter_app container ID
+
+#### `docker exec -it <container-id> php artisan key:generate`
+
+#### `docker exec -it <container-id> php artisan migrate`
+
 #### visit http://localhost:8080/
 
