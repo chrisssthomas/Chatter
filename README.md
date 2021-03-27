@@ -4,7 +4,7 @@
 
 #### `docker-compose up --build`
 
-#### Set .env variables
+#### set .env variables
 
-#### Running in Docker, visit http://localhost:8080/
+#### visit http://localhost:8080/
 
