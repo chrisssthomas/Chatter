@@ -1,10 +1,18 @@
 <div class="flex p-4 border-b border-b-gray-50 tweet">
     <div class="mr-4 flex-shrink-0">
         <a href="{{ $tweet->user->path() }}">
-            <img
-                src="{{ $tweet->user->avatar }}"
-                class="rounded-full focus-within w-14 h-14 mr-2"
+
+            @if (basename($tweet->user->avatar) === 'default-avatar.png')
+
+                <img src="/images/{{ basename($tweet->user->avatar) }}" alt="{{ $tweet->user->avatar }}'s avatar" class="rounded-full focus-within w-14 h-14 mr-2"
                 alt="{{ $tweet->user->name }}'s profile photo">
+
+            @else
+
+                <img src="/storage/avatars/{{ basename($tweet->user->avatar) }}" alt="{{ $tweet->user->avatar }}'s avatar" class="rounded-full focus-within w-14 h-14 mr-2"
+                alt="{{ $tweet->user->name }}'s profile photo">
+
+            @endif
         </a>
     </div>
 
@@ -20,7 +28,7 @@
 
         @if ($tweet->image != null) 
 
-            <img style="max-width: 100%;" class="rounded-lg border mt-2" src="storage/images/{{ basename($tweet->image) }}" alt="{{ $tweet->image }}">
+            <img style="max-width: 100%;" class="rounded-lg border mt-2" src="/storage/images/{{ basename($tweet->image) }}" alt="{{ $tweet->image }}">
 
         @endif
 

@@ -23,8 +23,9 @@
 
 
         <footer class="flex justify-between">
+
             <img
-                src="{{ auth()->user()->avatar }}"
+                src="/storage/avatars/{{ basename(auth()->user()->avatar) }}"
                 class="rounded-full focus-within mt-4 w-12 h-12 mr-2"
             >
             <button

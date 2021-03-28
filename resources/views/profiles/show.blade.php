@@ -16,14 +16,34 @@
                 </p>
                 <p></p>
             </div>
-            <img src="{{ $user->avatar }}" alt="" class="absolute rounded-full mr-2 w-32 h-32"
-            style="
-                top: -65px;
-                margin-left: auto;
-                margin-right: auto;
-                left: 0;
-                right: 0;
-            ">
+
+
+            @if (basename($user->avatar) === 'default-avatar.png')
+                <img  
+                    src="/images/{{ basename($user->avatar) }}" 
+                    alt="{{ $user->username }}'s avatar" 
+                    class="absolute rounded-full mr-2 w-32 h-32" 
+                    style="
+                        top: -65px;
+                        margin-left: auto;
+                        margin-right: auto;
+                        left: 0;
+                        right: 0;
+                ">
+            @else
+                <img 
+                src="/storage/avatars/{{ basename($user->avatar) }}" 
+                alt="/storage/avatars/{{ basename($user->avatar) }}" 
+                class="absolute rounded-full mr-2 w-32 h-32"
+                style="
+                    top: -65px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    left: 0;
+                    right: 0;
+                ">
+            @endif
+
             <div class="flex">
                 @can('edit', $user)
                     <a href="{{ $user->path('edit') }}" class="py-2 px-4 mr-2 border border-gray-300 hover:bg-gray-50 rounded-full">Edit profile</a>
