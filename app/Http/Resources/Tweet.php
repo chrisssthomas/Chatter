@@ -15,7 +15,8 @@ class Tweet extends JsonResource
     public function toArray($request)
     {
         return [
-            'user_id' =>$this->user_id,
+            'user_id' => $this->user_id,
+            'image' => $this->image,
             'body' => $this->body,
         ];
     }

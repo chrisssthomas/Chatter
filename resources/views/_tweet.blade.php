@@ -20,7 +20,7 @@
 
         @if ($tweet->image != null) 
 
-            <img style="max-width: 100%;" class="rounded-lg border mt-2"  src="{{ $tweet->image }}" alt="{{ $tweet->image }}">
+            <img style="max-width: 100%;" class="rounded-lg border mt-2" src="storage/images/{{ basename($tweet->image) }}" alt="{{ $tweet->image }}">
 
         @endif
 

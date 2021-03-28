@@ -70,16 +70,9 @@ class User extends Authenticatable
             ->paginate(50);
     }
 
-    /* TODO, this doesn't work yet.
-    *
-    * Edit: 6/2/2021: Hmm maybe this does work, not sure, it works on the front end, can't remember how though.
-    */
-
     public function whoTheyFollow()
     {
-
         return $this->follows()->pluck('id');
-
     }
 
     public function tweets(): HasMany
