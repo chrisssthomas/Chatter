@@ -1,7 +1,16 @@
-# Twitter clone built with Laravel and Blade.
 
-# `docker-compose up --build`
+![alt text](https://github.com/chrisssthomas/Chatter/blob/main/public/images/twatterlogo.svg "Chatter logo")
+# Twitter clone built with Laravel, Blade & VueJS
 
-# Set .env variables
+#### `docker-compose up --build`
 
-# Running in Docker, visit http://localhost:8080/
+#### set .env variables
+
+#### `docker ps` copy chatter_app container ID
+
+#### `docker exec -it <container-id> php artisan key:generate`
+
+#### `docker exec -it <container-id> php artisan migrate`
+
+#### visit http://localhost:8080/
+
