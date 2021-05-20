@@ -28,6 +28,8 @@ use App\User;
 use App\Http\Resources\Tweet as TweetResource;
 use App\Tweet;
 
+use Illuminate\Support\Facades\Redis;
+
 Route::get('/user', function () {
     return UserResource::collection(User::all());
 });
@@ -47,6 +49,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/redis', function () {
+
+    $visits = Redis::incr('visits');
+
+    return $visits;
+    
+});
 
 // Authed routes
 

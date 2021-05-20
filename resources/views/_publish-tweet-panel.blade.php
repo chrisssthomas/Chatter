@@ -11,9 +11,9 @@
 
 
         <label class="file">
-            <input type="file" name="image" id="image" class="my-2" aria-label="File browser example" >
+            <input type="file" name="image" id="image" class="my-2" aria-label="Upload file" >
             <span class="file-custom"></span>
-          </label>
+        </label>
 
           
 

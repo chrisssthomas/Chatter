@@ -12,5 +12,5 @@
 
 #### `docker exec -it <container-id> php artisan migrate`
 
-#### visit http://localhost:8080/
+#### visit http://localhost/ or http://127.0.0.1
 
