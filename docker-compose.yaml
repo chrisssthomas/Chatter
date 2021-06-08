@@ -8,7 +8,7 @@
           - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
         ports:
                 ## run the webserver on port 8080 ##
-          - "8080:80"
+          - "80:80"
       app:
             ## read php image from our custom docker image ##
         build:
@@ -28,7 +28,7 @@
         volumes:
           - ./docker-volumes-data/db:/var/lib/database
         environment:
-          MYSQL_DATABASE: laravel_db
+          MYSQL_DATABASE: chatter
           MYSQL_ROOT_PASSWORD: root
       redis:
         image: redis
