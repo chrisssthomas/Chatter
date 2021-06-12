@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Twatter') }}</title>
+    <title>{{ config('app.name', 'Chatter') }}</title>
 
     <!-- Scripts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -25,7 +25,7 @@
     <div id="app">
         <section class="px-8 py-4">
             <header class="container mx-auto pb-4">
-                <img src="/images/twatterlogo.svg" alt="Twatter">
+                <img src="/images/chatterlogo.svg" alt="Chatter">
             </header>
         </section>
         {{ $slot }}
