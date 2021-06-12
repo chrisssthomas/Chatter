@@ -2,7 +2,7 @@
 ![alt text](https://github.com/chrisssthomas/Chatter/blob/main/public/images/twatterlogo.svg "Chatter logo")
 # Twitter clone built with Laravel, Blade & VueJS
 
-#### `docker-compose up --build`
+#### `docker-compose up -d`
 
 #### set .env variables
 
@@ -12,5 +12,5 @@
 
 #### `docker exec -it <container-id> php artisan migrate`
 
-#### visit http://localhost:8080/
+#### visit http://localhost/
 
