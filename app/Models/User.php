@@ -79,6 +79,11 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class)->latest();
     }
 
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
     public function likes()
     {
         return $this->hasMany(Like::class);
