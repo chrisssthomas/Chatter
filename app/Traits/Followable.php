@@ -1,11 +1,9 @@
 <?php
 
 
-namespace App;
+namespace App\Traits;
 
-
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Models\User;
 
 trait Followable
 {
@@ -21,7 +19,7 @@ trait Followable
     public function follows()
     {
         return $this->belongsToMany(
-            'App\User',
+            'App\Models\User',
             'follows',
             'user_id',
             'following_user_id',

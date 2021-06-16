@@ -11,44 +11,17 @@
 |
 */
 
-
-/*
-| Examples of creating resources to return data from the database as JSON,
-| this would be needed for use with Vue and Axios on the front end,
-| the best stack of em all.
-|
-| the /user endpoint returns all users as a collection
-|
-| the /tweet endpoint returns a single tweet, found by the id of the table.
-*/
-
-use App\Http\Resources\User as UserResource;
 use App\User;
-
-use App\Http\Resources\Tweet as TweetResource;
 use App\Tweet;
+use App\Http\Resources\User as UserResource;
+use App\Http\Resources\Tweet as TweetResource;
 
-Route::get('/user', function () {
-    return UserResource::collection(User::all());
-});
 
 // Route::get('/profiles/{user}/followers', 'ProfilesController@showfollowers');
-
-
-Route::get('/tweet', function () {
-    return new TweetResource(Tweet::find(1));
-});
-
-
-
-// Pre-auth landing page
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-// Authed routes
 
 Route::middleware('auth')->group(function () {
 
@@ -71,12 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/tweets/{tweet}/like', 'TweetlikesController@store');
 
     Route::delete('/tweets/{tweet}/like', 'TweetlikesController@destroy');
-
-
-
 });
-
-// Profile page, no auth needed
 
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
 

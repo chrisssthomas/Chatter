@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-
-use Illuminate\Http\Request;
-
+use App\Models\User;
 
 class ExploreController extends Controller
 {

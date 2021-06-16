@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\User;
-use App\Tweet;
+use App\Models\User;
+use App\Models\Tweet;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 

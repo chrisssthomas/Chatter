@@ -1,14 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+use App\Traits\Likeable;
 
 class Tweet extends Model
 {
-    use HasFactory;
-    use Likeable;
+    use HasFactory, Likeable;
 
     protected $fillable = ['image', 'user_id', 'body'];
 

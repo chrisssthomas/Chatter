@@ -1,8 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
+use App\Models\User;
+use App\Models\Like;
 
 trait Likeable
 {
