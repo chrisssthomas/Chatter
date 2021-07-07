@@ -51,8 +51,8 @@
 
                 @if (auth()->user())
                     @component('components.follow-button', ['user' => $user]) @endcomponent
+                    <a href="{{ $user->path('message') }}" class="py-2 px-4 mr-2 border border-gray-300 hover:bg-gray-50 rounded-full">Send Message</a>
                 @endif
-
             </div>
         </div>
         <div class="mt-4">
